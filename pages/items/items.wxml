@@ -1,0 +1,3 @@
+<view class='detail'>
+  <image src="{{content}}" />
+</view>

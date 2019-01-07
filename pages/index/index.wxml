@@ -1,0 +1,37 @@
+<view class="index">
+  <!-- banner 轮播 -->
+  <swiper indicator-dots="{{banner.indicatorDots}}" autoplay="{{banner.autoplay}}" interval="{{banner.interval}}" duration="{{banner.duration}}">
+    <block wx:for-items="{{banner.imgUrls}}" wx:key="index">
+      <swiper-item class='banner'>
+      <view class='font'>
+        <text>旅行，遇见最美DE自己</text>
+      </view>
+        <image src="{{item}}" class="banner_slide_image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 总体布局 -->
+  <view class='layout'>
+    <!-- 景点推荐 -->
+    <view class='recommend'>
+      <text class='recommend_title'>推荐景区</text>
+      <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+        <navigator class="tab-item" wx:for-items="{{recommend.imgUrls}}" wx:key="index" url='../items/items?name={{item.title}}'>
+          <view class='img'>
+            <image src="{{item.img}}"></image>
+          </view>
+          <text>{{item.title}}</text>
+        </navigator>
+      </scroll-view>
+    </view>
+    <!-- all -->
+    <text class='all_title'>全部景区</text>
+    <view class='all'>
+      <view class='item' wx:for-items="{{scenicInfo}}" wx:key="index">
+        <navigator  url='../items/items?name={{item.name}}'>
+          <image wx:for-index="index" src='{{scenicInfo[index].indexImg}}'></image>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>
